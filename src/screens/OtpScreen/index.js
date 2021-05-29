@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Text, Icon } from 'react-native-elements';
-import { useNavigation } from '@react-navigation/core';
+import { Text } from 'react-native-elements';
 import { StyleSheet, View, TextInput, Alert, TouchableWithoutFeedback } from 'react-native';
 import { SCREENS } from '../../constants'
 import { colors } from '../../common/colors'

@@ -23,7 +23,7 @@ export default function HomePage() {
             <View style={styles.root}>
                 <Text style={{ fontSize: 27, fontWeight: 'bold', textAlign: 'center' }}>Notes</Text>
                 <Text style={{ fontSize: 21, fontWeight: '600', textAlign: 'center', marginTop: 10 }}>Personal Messages for you</Text>
-                <ImageBackground source={require('../../assets/images/photo_1.png')} style={{ width: '100%', height: 300, borderRadius: 8, overflow: 'hidden', marginTop: '5%' }}>
+                <ImageBackground source={require('../../assets/images/photo_1.png')} style={styles.mainImage}>
                     <View style={{ alignItems: 'flex-start', justifyContent: 'flex-end', display: 'flex', flex: 1, margin: 10 }}>
                         <Text style={{ fontSize: 22, color: 'white', fontWeight: 'bold' }}>Meena, 23</Text>
                         <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>Tap to review 50+ notes</Text>
@@ -43,7 +43,7 @@ export default function HomePage() {
                 </View>
                 <View style={{ flexDirection: 'row' }}>
                     <View>
-                        <ImageBackground source={require('../../assets/images/photo_2.png')} style={{ width: 160, height: 300, borderRadius: 8, overflow: 'hidden', margin: '2%' }}>
+                        <ImageBackground source={require('../../assets/images/photo_2.png')} style={styles.blurImage}>
                             <View key={'firstImage'} style={{ alignItems: 'flex-start', justifyContent: 'flex-end', display: 'flex', flex: 1, margin: 10 }}>
                                 <Text style={{ fontSize: 22, color: 'white', fontWeight: 'bold' }}>Teena</Text>
                             </View>
@@ -55,7 +55,7 @@ export default function HomePage() {
                             reducedTransparencyFallbackColor="white"
                         />
                     </View>
-                    <ImageBackground source={require('../../assets/images/photo_3.png')} style={{ width: 160, height: 300, borderRadius: 8, overflow: 'hidden', margin: '2%' }}>
+                    <ImageBackground source={require('../../assets/images/photo_3.png')} style={styles.blurImage}>
                         <View key={'secondImage'} style={{ alignItems: 'flex-start', justifyContent: 'flex-end', display: 'flex', flex: 1, margin: 10 }}>
                             <Text style={{ fontSize: 22, color: 'white', fontWeight: 'bold' }}>Teena</Text>
                         </View>
@@ -83,12 +83,26 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 200,
     },
+    mainImage: {
+        width: '100%',
+        height: 300,
+        borderRadius: 8,
+        overflow: 'hidden',
+        marginTop: '5%'
+    },
     absolute: {
         position: "absolute",
         top: 0,
         left: 0,
         bottom: 0,
         right: 0,
+        margin: '2%'
+    },
+    blurImage: {
+        width: 160,
+        height: 300,
+        borderRadius: 8,
+        overflow: 'hidden',
         margin: '2%'
     }
 })
