@@ -6,6 +6,7 @@ import { SCREENS } from '../../constants'
 import { colors } from '../../common/colors'
 import Button from "../../components/Button"
 import { Otp as otpApi } from '../../utils/OtpApi';
+import Storage from '../../common/Storage';
 
 export default function OtpLogin({ route, navigation }) {
     const { number = '99999 99999' } = route.params;
@@ -39,6 +40,9 @@ export default function OtpLogin({ route, navigation }) {
                 if (token) {
                     console.log(logInData)
                     console.log(token)
+                    Storage.setItem('Authorization', token)
+                    Storage.setItem('isLoggedIn', "True")
+                    navigation.navigate(SCREENS.HOME)
                 } else {
                     Alert.alert("Enter Valid Otp")
                     setLoading(false);

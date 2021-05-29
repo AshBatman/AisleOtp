@@ -2,7 +2,8 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Login from './src/screens/Login';
-import OtpLogin from './src/screens/OtpScreen'
+import OtpLogin from './src/screens/OtpScreen';
+import HomePage from './src/screens/HomePage';
 import Header from './src/components/Header';
 import { colors } from './src/common/colors';
 import { SCREENS } from './src/constants';
@@ -30,6 +31,11 @@ export default function App() {
           name={SCREENS.OTP}
           component={OtpLogin}
           options={{ title: SCREENS.OTP, header: () => null }}
+        />
+        <Stack.Screen
+          name={SCREENS.HOME}
+          component={HomePage}
+          options={{ title: SCREENS.HOME, header: () => null }}
         />
       </Stack.Navigator>
     </NavigationContainer>
