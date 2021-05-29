@@ -27,18 +27,14 @@ export default function OtpLogin({ route, navigation }) {
         } else {
             setError(errorObj)
             setLoading(true)
-            console.log(number)
             const data = {
                 number: number,
                 otp: otp.toString()
             }
-            console.log(data)
             otpApi(data).then((response) => {
                 const { token } = response;
                 setLoading(true);
                 if (token) {
-                    console.log(logInData)
-                    console.log(token)
                     Storage.setItem('Authorization', token)
                     Storage.setItem('isLoggedIn', "True")
                     navigation.navigate(SCREENS.HOME)
@@ -53,7 +49,7 @@ export default function OtpLogin({ route, navigation }) {
         <View style={styles.root}>
             <View style={{ flexDirection: 'row', marginBottom: 0 }}>
                 <Text style={{ fontSize: 18, fontWeight: '500', marginRight: 15 }}>{number}</Text>
-                <TouchableWithoutFeedback onPress={() => navigation.navigate(SCREENS.LOGIN)}>
+                <TouchableWithoutFeedback onPress={() => navigation.navigate(SCREENS.LOGIN, { load: false })}>
                     <Text style={{ color: 'blue', textDecorationLine: 'underline' }}>edit</Text>
                 </TouchableWithoutFeedback>
             </View>
