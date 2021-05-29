@@ -25,7 +25,6 @@ class Http {
             headers.Authorization = `Bearer ${accessToken}`
         if (dontParse)
             delete headers["Content-Type"]
-        console.log(JSON.stringify(data));
         const apiUrl = `${API_BASE_URL}${url}`;
         const response = await fetch(apiUrl, {
             method: 'POST',

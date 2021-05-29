@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, TextInput, Alert } from 'react-native';
 import { Text } from 'react-native-elements';
 import Button from "../../components/Button"
@@ -6,16 +6,12 @@ import { login as loginApi } from '../../utils/LoginApi';
 import { colors } from '../../common/colors'
 import { useNavigation } from '@react-navigation/core';
 import { SCREENS } from '../../constants'
-export default function Login() {
+export default function Login({ route }) {
+    const { load = false } = route.params;
     const [logInData, setLogInData] = useState({ number: '' })
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState({ number: '' })
     const navigation = useNavigation();
-
-    const handlePhoneChange = (value) => {
-        console.log(value)
-        setLogInData({ number: value });
-    }
 
     const handleLogin = async () => {
         const { number = '9999999999' } = logInData
@@ -32,16 +28,13 @@ export default function Login() {
         } else {
             setError(errorObj)
             setLoading(true)
-            console.log(number)
             const data = {
                 number: concatNum
             }
-            console.log(data)
             loginApi(data).then((response) => {
                 const { status } = response;
                 setLoading(true);
                 if (status) {
-                    console.log(logInData)
                     console.log(status)
                     navigation.navigate(SCREENS.OTP, data)
                 } else {
@@ -51,6 +44,11 @@ export default function Login() {
             }).catch((err) => console.warn(err))
         }
     }
+
+    useEffect(() => {
+        setLoading(load);
+    })
+
     return (
         <View style={styles.root}>
             <Text style={{ fontSize: 18, fontWeight: '500' }}>Get OTP</Text>
