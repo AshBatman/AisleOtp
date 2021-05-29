@@ -17,10 +17,6 @@ export default function Login() {
         setLogInData({ number: value });
     }
 
-    // logInData = {
-    //     number: '+919876543212'
-    // }
-
     const handleLogin = async () => {
         const { number = '9999999999' } = logInData
         const concatNum = '+91' + number.toString();
