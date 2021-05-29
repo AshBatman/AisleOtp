@@ -4,7 +4,7 @@ export const colors = {
     DIVIDER_COLOR: '#D2D2D2',
     WHITE: '#FFFFFF',
     BLACK: '#000000',
-    MAIN: '#1E969C',
+    MAIN: '#F9CB10',
     MAIN_LIGHT: '#02A8A8',
     BOX_GREY: '#F7F8FA',
     DESCRIPTION_GREY: '#7E898F',
